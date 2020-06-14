@@ -10,14 +10,13 @@ let counter = 1;
 const size = carouselImages[0].clientWidth;
 
 carouselSlider.style.transform = `translateX(${-size * counter}px)`;
-console.log(carouselImages, carouselSlider, prevBTN, nextBTN);
 
 prevBTN.addEventListener('click', () => {
     if (counter <= 0) return;
     carouselSlider.style.transition = 'transform 0.4s ease-in-out';
     console.log(carouselSlider.style.transition)
     counter--;
-    carouselSlider.style.transform = `translateX(${-size * counter}px)`;
+    carouselSlider.style.transform = `translateX(${-100 * counter}%)`;
 });
 
 nextBTN.addEventListener('click', () => {
@@ -25,7 +24,7 @@ nextBTN.addEventListener('click', () => {
 
     carouselSlider.style.transition = 'transform 0.4s ease-in-out';
     counter++;
-    carouselSlider.style.transform = `translateX(${-size * counter}px)`;
+    carouselSlider.style.transform = `translateX(${-100 * counter}%)`;
 });
 
 carouselSlider.addEventListener('transitionend', () => {
@@ -34,13 +33,13 @@ carouselSlider.addEventListener('transitionend', () => {
         carouselSlider.style.transition = 'none';
         console.log(carouselSlider.style.transition)
         counter = carouselImages.length - 2;
-        carouselSlider.style.transform = `translateX(${-size * counter}px)`;
+        carouselSlider.style.transform = `translateX(${-100 * counter}%)`;
     } 
 
     if(carouselImages[counter].id === 'firstClone') {
         carouselSlider.style.transition = 'none';
         console.log(carouselSlider.style.transition)
         counter = carouselImages.length - counter;
-        carouselSlider.style.transform = `translateX(${-size * counter}px)`;
+        carouselSlider.style.transform = `translateX(${-100 * counter}%)`;
     } 
 });
